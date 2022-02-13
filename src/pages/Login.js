@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import loginAction from '../actions';
+import { loginAction } from '../actions';
 
 const PASSWORD_LENGTH = 6;
 
@@ -10,8 +10,8 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
+      emailInput: '',
+      passwordInput: '',
       isButtonDisabled: true,
       shouldRedirect: false,
     };
@@ -24,10 +24,10 @@ class Login extends React.Component {
   }
 
   handleButtonValidation = () => {
-    const { email, password } = this.state;
-    if (email.includes('@')
-    && email.includes('.com')
-    && password.length >= PASSWORD_LENGTH
+    const { emailInput, passwordInput } = this.state;
+    if (emailInput.includes('@')
+    && emailInput.includes('.com')
+    && passwordInput.length >= PASSWORD_LENGTH
     ) {
       this.setState({ isButtonDisabled: false });
     } else {
@@ -37,16 +37,16 @@ class Login extends React.Component {
 
   handleButton = (event) => {
     event.preventDefault();
-    const { email } = this.state;
+    const { emailInput } = this.state;
     const { submitUserInfo } = this.props;
-    submitUserInfo(email);
+    submitUserInfo(emailInput);
     this.setState({ shouldRedirect: true });
   }
 
   render() {
     const {
-      email,
-      password,
+      emailInput,
+      passwordInput,
       isButtonDisabled,
       shouldRedirect,
     } = this.state;
@@ -54,26 +54,26 @@ class Login extends React.Component {
     return (
       <div>
         <form>
-          <label htmlFor="emailInput">
+          <label htmlFor="email-Input">
             Email:
             <input
               type="email"
-              name="email"
-              id="emailInput"
+              name="emailInput"
+              id="email-Input"
               data-testid="email-input"
-              value={ email }
+              value={ emailInput }
               onChange={ this.handleChange }
             />
           </label>
 
-          <label htmlFor="passwordInput">
+          <label htmlFor="password-Input">
             Senha:
             <input
               type="text"
-              name="password"
-              id="passwordInput"
+              name="passwordInput"
+              id="password-Input"
               data-testid="password-input"
-              value={ password }
+              value={ passwordInput }
               onChange={ this.handleChange }
             />
           </label>
