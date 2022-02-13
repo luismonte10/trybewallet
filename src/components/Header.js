@@ -8,7 +8,7 @@ class Header extends Component {
 
     let totalValue = 0;
     expenses.forEach(({ value, exchangeRates, currency }) => {
-      totalValue += value * exchangeRates[currency].ask;
+      totalValue += Number(value) * Number(exchangeRates[currency].ask);
     });
 
     return (
