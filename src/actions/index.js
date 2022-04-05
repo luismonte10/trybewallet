@@ -4,6 +4,7 @@ import fetchAPI from '../service';
 export const LOGIN = 'LOGIN';
 export const WALLET = 'WALLET';
 export const GET_CURRENCIES = 'GET_CURRENCIES';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export function loginAction(payload) {
   return {
@@ -15,6 +16,13 @@ export function loginAction(payload) {
 export function walletFormAction(payload) {
   return {
     type: WALLET,
+    payload,
+  };
+}
+
+export function deleteExpense(payload) {
+  return {
+    type: DELETE_EXPENSE,
     payload,
   };
 }
