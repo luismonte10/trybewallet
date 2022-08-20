@@ -2,7 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { loginAction } from '../actions';
+import { loginAction } from '../../actions';
+import './Login.css';
 
 const PASSWORD_LENGTH = 6;
 
@@ -52,39 +53,41 @@ class Login extends React.Component {
     } = this.state;
     if (shouldRedirect) return <Redirect to="/carteira" />;
     return (
-      <div>
-        <form>
-          <label htmlFor="email-Input">
-            Email:
+      <div className="login">
+        <div className="login__container">
+          <h1 className="login__title">Trybe Wallet</h1>
+          <form className="login__form">
             <input
+              className="login__input"
               type="email"
+              placeholder="e-mail"
               name="emailInput"
-              id="email-Input"
               data-testid="email-input"
               value={ emailInput }
               onChange={ this.handleChange }
             />
-          </label>
-
-          <label htmlFor="password-Input">
-            Senha:
+            <span className="login__input-border" />
             <input
+              className="login__input"
               type="text"
+              placeholder="senha"
               name="passwordInput"
-              id="password-Input"
               data-testid="password-input"
               value={ passwordInput }
               onChange={ this.handleChange }
             />
-          </label>
-          <button
-            type="submit"
-            disabled={ isButtonDisabled }
-            onClick={ this.handleButton }
-          >
-            Entrar
-          </button>
-        </form>
+            <span className="login__input-border" />
+            <button
+              className="login__submit"
+              type="submit"
+              disabled={ isButtonDisabled }
+              onClick={ this.handleButton }
+            >
+              Entrar
+            </button>
+            <a className="login__reset" href="a">Esquesi a senha</a>
+          </form>
+        </div>
       </div>
     );
   }
