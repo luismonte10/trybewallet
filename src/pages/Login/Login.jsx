@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginAction } from '../../actions';
+import MyWalletLogo from '../../images/MyWalletLogo.svg';
 import './Login.css';
 
 const PASSWORD_LENGTH = 6;
@@ -55,7 +56,8 @@ class Login extends React.Component {
     return (
       <div className="login">
         <div className="login__container">
-          <h1 className="login__title">Trybe Wallet</h1>
+          <img className="login__logo" src={ MyWalletLogo } alt="My Wallet Logo" />
+          <h1 className="login__title">MyWallet</h1>
           <form className="login__form">
             <input
               className="login__input"
@@ -69,7 +71,7 @@ class Login extends React.Component {
             <span className="login__input-border" />
             <input
               className="login__input"
-              type="text"
+              type="password"
               placeholder="senha"
               name="passwordInput"
               data-testid="password-input"
@@ -85,7 +87,7 @@ class Login extends React.Component {
             >
               Entrar
             </button>
-            <a className="login__reset" href="a">Esquesi a senha</a>
+            <a className="login__reset" href="a">Esqueci minha senha</a>
           </form>
         </div>
       </div>
