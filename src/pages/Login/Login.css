@@ -1,5 +1,5 @@
 :root {
-  --input-linear: linear-gradient(120deg, #111111, #d4a470);
+  --input-linear: linear-gradient(120deg, #111111, #cc700e);
   --button-linear: linear-gradient(120deg,  #111111, #d4a470, #111111);
 }
 
@@ -11,27 +11,34 @@ body {
 
 .login {
   height: 100vh;
-  background: var(--input-linear);
+  background-color: #202024;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .login__container {
-  min-height: 400px;
-  width: 300px;
-  background-color:  #ffffff;
+  min-height: 500px;
+  width: 400px;
+  background-color:  #111111;
   box-sizing:  border-box;
   padding: 32px;
   border-radius: flex;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 3%;
+}
+
+.login__logo {
+  width: 50%;
 }
 
 .login__title {
   margin-bottom: 32px;
+  margin-top: 2 0px;
   color: #d4a470ed;
+  font-family: sans-serif;
 }
 
 .login__form {
@@ -49,6 +56,8 @@ body {
   padding-left: 8px;
   border: unset;
   outline: none;
+  background-color: #202024;
+  color: #ffffff;
 }
 
 .login__input-border {
@@ -62,7 +71,7 @@ body {
 .login__input-border::after {
   content: '';
   display: block;
-  height: 1px;
+  height: 2px;
   width: 0;
   margin-bottom: 16px;
   background: var(--input-linear);
@@ -85,6 +94,7 @@ body {
   font-weight: bold;
   border: unset;
   border-radius: 4px;
+  cursor: pointer;
   transition: .5s ease-in-out;
 }
 

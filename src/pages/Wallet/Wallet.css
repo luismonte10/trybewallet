@@ -1,0 +1,4 @@
+.form-expenses-container {
+  display: flex;
+  flex-direction: row;
+}
